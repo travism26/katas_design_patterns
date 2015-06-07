@@ -10,7 +10,7 @@ class Login implements subject {
 
 	public function __construct()
 	{
-		
+
 	}
 
 	protected $observers = [];
