@@ -2,10 +2,7 @@
 require 'vendor/autoload.php';
 
 use pattern\observerPattern\login;
-
-interface Observer {
-	public  function handle();
-}
+use pattern\observerPattern\Observer;
 
 class EmailNotifier implements Observer {
 
@@ -23,7 +20,25 @@ class  fileLogger implements Observer {
 	}
 }
 
+class  adminNotify implements Observer {
+
+	public function handle()
+	{
+		var_dump('notify admin that new users has login.');
+	}
+}
+
+class  someOtherClass implements Observer {
+
+	public function handle()
+	{
+		var_dump('Do something....');
+	}
+}
+
+//lets just say this is our factory class below :)
 $login = new Login;
 $login->attach([new EmailNotifier, new fileLogger]);
 
+$login->attach(new someOtherClass())->attach(new adminNotify());
 $login->fire();
