@@ -1,7 +1,7 @@
 <?php namespace pattern\observerPattern;
 require '../../index.php';
 
-class EmailNotifier implements Observer {
+class emailNotifier implements Observer {
 
 	public function handle()
 	{
@@ -35,7 +35,7 @@ class  someOtherClass implements Observer {
 
 //lets just say this is our factory class below :)
 $login = new Login;
-$login->attach([new EmailNotifier, new fileLogger]);
+$login->attach([new emailNotifier, new fileLogger]);
 
-$login->attach(new someOtherClass())->attach(new adminNotify());
+$login->attach(new someOtherClass())->attach(new adminNotify())->attach(new LogHandler());
 $login->fire();
