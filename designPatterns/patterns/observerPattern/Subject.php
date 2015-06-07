@@ -1,4 +1,5 @@
 <?php
+namespace pattern\observerPattern;
 
 
 interface Subject {
