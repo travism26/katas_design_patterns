@@ -23,7 +23,7 @@ class  fileLogger implements Observer {
 	}
 }
 
-$login = new login;
+$login = new Login;
 $login->attach([new EmailNotifier, new fileLogger]);
 
 $login->fire();

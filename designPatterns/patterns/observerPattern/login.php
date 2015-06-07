@@ -6,11 +6,11 @@ namespace pattern\observerPattern;
  * Date: 15-06-06
  * Time: 3:57 PM
  */
-class login implements subject {
+class Login implements subject {
 
 	public function __construct()
 	{
-
+		
 	}
 
 	protected $observers = [];

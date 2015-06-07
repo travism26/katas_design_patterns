@@ -8,6 +8,6 @@ interface Subject {
 
 	public function detach($observer);
 
-	public function notify($observer);
+	public function notify();
 
 }
