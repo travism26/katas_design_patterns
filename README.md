@@ -12,4 +12,5 @@ Open the command terminal navigate to the **observerPattern** folder and run `ph
 Open the command terminal navigate to the **DecoratorPattern** folder and run `php index.php` in the terminal.
 
 ##Description / whats happening:
-I decided to
+I decided to to create a service class that will hold an array of abstract objects (CarService) and just inject the class' that implement them into the addTask method.
+Example: ```$service->addTask(new TireRotation())->addTask(new OilChange());```
