@@ -9,4 +9,7 @@ Clone repo and run `composer install` to install all the dependencies.
 Open the command terminal navigate to the **observerPattern** folder and run `php index.php` in the terminal.
 
 # Decorator Pattern
-TBC
+Open the command terminal navigate to the **DecoratorPattern** folder and run `php index.php` in the terminal.
+
+##Description / whats happening:
+I decided to

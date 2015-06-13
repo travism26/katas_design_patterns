@@ -34,6 +34,9 @@ class Service
         }
     }
 }
+// now that we have our "Base" service class we can now "Decorate" it with additional
+// class' this classes can be in their own seperate file but to make it simple ill keep
+// them in one file.
 
 class BasicInspection implements CarService
 {
@@ -107,15 +110,8 @@ class TireRotation implements CarService
 
 $service = new Service();
 
+// now we just decorate our service object with the clients needs.
+// if at anytime we need to add more functionality its easy to extend
+// the service VIA Polymorphism.
 $service->addTask(new TireRotation())->addTask(new OilChange());
-
-echo "ahh";
 echo $service->getCost();
-
-
-//$price = (new TireRotation())->with(new OilChange());
-
-//echo $price;
-//$price->getCost();
-//var_dump($price);
-//echo (new TireRotation(new OilChange(new BasicInspection())))->getDescription();
