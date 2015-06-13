@@ -8,6 +8,33 @@ interface CarService
     public function getDescription();
 }
 
+class Service
+{
+    protected $tasks = [];
+
+    public function addTask(CarService $task)
+    {
+        $this->tasks[] = $task;
+        return $this;
+    }
+
+    public function getCost()
+    {
+        return array_sum(array_map(function($task) {
+            return $task->getCost();
+        }, $this->tasks));
+    }
+
+    public function getDescription()
+    {
+        $description = "";
+
+        foreach($this->tasks as $task) {
+            $description .= $task->getDescription();
+        }
+    }
+}
+
 class BasicInspection implements CarService
 {
 
@@ -32,19 +59,20 @@ class OilChange implements CarService
     protected $description = "We will perform an oil change ";
     protected $carService;
 
-    public function __construct(CarService $carService)
+    public function with(CarService $service)
     {
-        $this->carService = $carService;
+        $this->carService = $service;
+        return $this;
     }
 
     public function getCost()
     {
-        return $this->cost + $this->carService->getCost();
+        return $this->cost;
     }
 
     public function getDescription()
     {
-        return $this->description . $this->carService->getDescription();
+        return $this->description;
     }
 }
 
@@ -55,20 +83,39 @@ class TireRotation implements CarService
     protected $description = "We will perform a tire rotation ";
     protected $carService;
 
-    public function __construct(CarService $carService)
+//    public function __construct(CarService $carService)
+//    {
+//        $this->carService = $carService;
+//    }
+
+    public function with(CarService $service)
     {
-        $this->carService = $carService;
+        $this->carService = $service;
+        return $this;
     }
 
     public function getCost()
     {
-        return $this->cost + $this->carService->getCost();
+        return $this->cost;
     }
 
     public function getDescription()
     {
-        return $this->description . $this->carService->getDescription();
+        return $this->description;
     }
 }
 
-echo (new TireRotation(new OilChange(new BasicInspection())))->getDescription();
+$service = new Service();
+
+$service->addTask(new TireRotation())->addTask(new OilChange());
+
+echo "ahh";
+echo $service->getCost();
+
+
+//$price = (new TireRotation())->with(new OilChange());
+
+//echo $price;
+//$price->getCost();
+//var_dump($price);
+//echo (new TireRotation(new OilChange(new BasicInspection())))->getDescription();
