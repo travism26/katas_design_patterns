@@ -1,6 +1,5 @@
 <?php namespace patterns\StrategyPattern;
 require '../../index.php';
-use patterns\StrategyPattern\Animal;
 use patterns\StrategyPattern\flyable\cantFly;
 use patterns\StrategyPattern\flyable\canFly;
 
