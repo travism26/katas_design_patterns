@@ -1,5 +1,5 @@
 <?php
-namespace pattern\observerPattern;
+namespace patterns\observerPattern;
 /**
  * Created by PhpStorm.
  * User: travismartin

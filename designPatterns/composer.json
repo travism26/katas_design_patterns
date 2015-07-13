@@ -3,6 +3,6 @@
     "phpspec/phpspec": "~2.0"
   },
   "autoload": {
-    "psr-4": {"pattern\\": "patterns/"}
+    "psr-4": {"patterns\\": "patterns/"}
   }
 }

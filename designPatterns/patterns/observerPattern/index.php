@@ -1,4 +1,4 @@
-<?php namespace pattern\observerPattern;
+<?php namespace patterns\observerPattern;
 require '../../index.php';
 
 class emailNotifier implements Observer {
