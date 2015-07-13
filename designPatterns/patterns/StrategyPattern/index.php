@@ -24,8 +24,7 @@ $bird->getFlies();
 $dog->getFlies();
 
 //lets say in the future the dog grows wings we can
-//set that on the just by calling the correct class.
-
+//set that on the just by swapping out class.
 $dog->setFlies(new canFly());
 
 $dog->getFlies();
