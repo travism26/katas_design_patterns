@@ -61,5 +61,13 @@ abstract class BasePizza
         }, $ingredients));
     }
 
+    public function calPrice()
+    {
+        $base_price = $this->calTotalPrice($this->ingredients);
+        $extra_price = $this->calTotalPrice($this->getExtraIngredients());
+        $total = $base_price + $extra_price;
+        return $total;
+    }
+
     //abstract public function calPrice();
 }

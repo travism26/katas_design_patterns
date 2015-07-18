@@ -15,7 +15,6 @@ use patterns\DecoratorPattern\foodServiceExample\Decorators\Pepperoni;
 
 class MeatPizza extends BasePizza
 {
-
     /*
      * Meat Pizza will come with bacon, ham, and pepperoni
      */
@@ -23,14 +22,4 @@ class MeatPizza extends BasePizza
     {
         $this->addIngredient(new Bacon)->addIngredient(new Ham)->addIngredient(new Pepperoni);
     }
-
-    public function calPrice()
-    {
-        $base_price = $this->calTotalPrice($this->ingredients);
-        $extra_price = $this->calTotalPrice($this->getExtraIngredients());
-        $total = $base_price + $extra_price;
-        return $total;
-    }
-
-
 }
