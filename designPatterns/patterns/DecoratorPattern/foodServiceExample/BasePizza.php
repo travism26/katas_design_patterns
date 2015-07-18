@@ -29,7 +29,7 @@ abstract class BasePizza
         $this->addIngredient(new PizzaSauce)->addIngredient(new SpicyCheese);
     }
 
-    public function addIngredient(IngredientInterface $ingredient)
+    protected function addIngredient(IngredientInterface $ingredient)
     {
         $this->ingredients[] = $ingredient;
         return $this;
@@ -43,11 +43,16 @@ abstract class BasePizza
     }
 
     //not needed right now.
-    public function calBasePrice()
+//    public function calBasePrice()
+//    {
+//        return array_sum(array_map(function($task) {
+//            return $task->getPrice();
+//        }, $this->ingredients));
+//    }
+
+    public function getExtraIngredients()
     {
-        return array_sum(array_map(function($task) {
-            return $task->getPrice();
-        }, $this->ingredients));
+        return $this->extraIngredients;
     }
 
     public function calTotalPrice($ingredients = []){
@@ -56,5 +61,5 @@ abstract class BasePizza
         }, $ingredients));
     }
 
-    abstract public function calPrice();
+    //abstract public function calPrice();
 }
