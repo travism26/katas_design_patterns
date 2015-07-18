@@ -20,3 +20,4 @@ Open the command terminal navigate to the **StrategyPattern** folder and run `ph
 
 ##Description:
 Animal class has behavior that is encapsulated into an interface (Flyable), Satisfying the open/closed principle (Open for extension closed for modification).
+
