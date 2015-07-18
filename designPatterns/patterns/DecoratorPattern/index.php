@@ -20,7 +20,8 @@ class Service
 
     public function getCost()
     {
-        return array_sum(array_map(function($task) {
+        return array_sum(array_map(
+            function($task) {
             return $task->getCost();
         }, $this->tasks));
     }
