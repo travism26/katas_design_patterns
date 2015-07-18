@@ -23,9 +23,4 @@ class MeatPizza extends BasePizza
         $this->addIngredient(new Bacon)->addIngredient(new Ham)->addIngredient(new Pepperoni);
     }
 
-    public function calPrice()
-    {
-        return $this->calTotalPrice($this->ingredients);
-    }
-
 }
