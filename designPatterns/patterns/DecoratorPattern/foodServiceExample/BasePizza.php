@@ -55,11 +55,11 @@ abstract class BasePizza
         return $this->extraIngredients;
     }
 
-//    public function calTotalPrice($ingredients = []){
-//        return array_sum(array_map(function($ingredients) {
-//            return $ingredients->getPrice();
-//        }, $ingredients));
-//    }
+    public function calTotalPrice($ingredients = []){
+        return array_sum(array_map(function($ingredients) {
+            return $ingredients->getPrice();
+        }, $ingredients));
+    }
 
     public function calPrice()
     {
