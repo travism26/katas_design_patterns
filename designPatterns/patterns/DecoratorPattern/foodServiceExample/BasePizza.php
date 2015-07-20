@@ -25,6 +25,11 @@ abstract class BasePizza
 
     protected $extraIngredients = [];
 
+    public function __construct()
+    {
+        $this->init();
+        $this->addPrimaryIngredients();
+    }
     protected function init()
     {
         $this->addIngredient(new PizzaSauce)->addIngredient(new SpicyCheese);
