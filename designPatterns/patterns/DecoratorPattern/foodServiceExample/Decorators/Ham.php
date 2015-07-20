@@ -18,6 +18,6 @@ class Ham implements IngredientInterface{
 
     public function getPrice()
     {
-        return 5.5;
+        return 5;
     }
 }

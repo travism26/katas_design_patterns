@@ -20,6 +20,12 @@ class MeatPizza extends BasePizza
      */
     public function __construct()
     {
-        $this->addIngredient(new Bacon)->addIngredient(new Ham)->addIngredient(new Pepperoni);
+        $this->init();
+        $this->addPrimaryIngredients();
+    }
+
+    public function addPrimaryIngredients()
+    {
+        return $this->ingredients[] = $this->addIngredient(new Bacon)->addIngredient(new Ham)->addIngredient(new Pepperoni);
     }
 }

@@ -18,6 +18,6 @@ class Pepperoni implements IngredientInterface{
 
     public function getPrice()
     {
-        return 2.5;
+        return 2;
     }
 }

@@ -18,6 +18,6 @@ class Bacon implements IngredientInterface{
 
     public function getPrice()
     {
-        return 3.4;
+        return 3;
     }
 }

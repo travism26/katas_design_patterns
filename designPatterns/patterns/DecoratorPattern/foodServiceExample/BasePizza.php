@@ -17,6 +17,7 @@ use patterns\DecoratorPattern\foodServiceExample\Decorators\SpicyCheese;
  * This say this is a pizza shop or some place that
  * serves pizza as their main dish.
  */
+
 abstract class BasePizza
 {
 
@@ -24,7 +25,7 @@ abstract class BasePizza
 
     protected $extraIngredients = [];
 
-    public function __construct()
+    protected function init()
     {
         $this->addIngredient(new PizzaSauce)->addIngredient(new SpicyCheese);
     }
@@ -36,7 +37,7 @@ abstract class BasePizza
     }
 
     //this might not be needed but adding in just in case it is.
-    public function extraIngredient(IngredientInterface $ingredient)
+    public function addExtraIngredient(IngredientInterface $ingredient)
     {
         $this->extraIngredients[] = $ingredient;
         return $this;
@@ -55,19 +56,25 @@ abstract class BasePizza
         return $this->extraIngredients;
     }
 
-    public function calTotalPrice($ingredients = []){
-        return array_sum(array_map(function($ingredients) {
+    public function calTotalPrice($ingredients = [])
+    {
+        return array_sum(array_map(function ($ingredients) {
             return $ingredients->getPrice();
         }, $ingredients));
     }
 
     public function calPrice()
     {
-        $base_price = $this->calTotalPrice($this->ingredients);
-        $extra_price = $this->calTotalPrice($this->getExtraIngredients());
-        $total = $base_price + $extra_price;
-        return $total;
+        //$base_price = $this->calTotalPrice($this->ingredients);
+        //$extra_price = $this->calTotalPrice($this->getExtraIngredients());
+        //$total = $base_price + $extra_price;
+        return $this->calTotalPrice($this->getIngredients());
     }
 
-    //abstract public function calPrice();
+    public function getIngredients()
+    {
+        return array_merge($this->ingredients, $this->extraIngredient);
+    }
+
+    abstract public function addPrimaryIngredients();
 }

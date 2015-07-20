@@ -18,6 +18,6 @@ class PizzaSauce implements IngredientInterface{
 
     public function getPrice()
     {
-        return 2.25;
+        return 2;
     }
 }
