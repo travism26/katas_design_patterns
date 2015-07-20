@@ -6,8 +6,10 @@ use patterns\DecoratorPattern\foodServiceExample\Decorators\Mushrooms;
 
 require '../../../index.php';
 
-$meatPizza = new MeatPizza;
+$meatPizza = new MeatPizza();
 
-$meatPizza->extraIngredient(new GreenPepper)->extraIngredient(new Mushrooms);
-echo $meatPizza->calPrice();
+//$meatPizza->addExtraIngredient(new GreenPepper)->addExtraIngredient(new Mushrooms);
+//echo $meatPizza->calPrice();
+
+var_dump($meatPizza);
 

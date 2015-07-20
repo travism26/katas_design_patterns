@@ -18,6 +18,6 @@ class GreenPepper implements IngredientInterface {
 
     public function getPrice()
     {
-        return 1.59;
+        return 1;
     }
 }

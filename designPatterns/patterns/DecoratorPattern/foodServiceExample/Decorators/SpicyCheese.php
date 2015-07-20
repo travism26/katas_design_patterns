@@ -18,6 +18,6 @@ class SpicyCheese implements IngredientInterface {
 
     public function getPrice()
     {
-        return 1.50;
+        return 1.0;
     }
 }

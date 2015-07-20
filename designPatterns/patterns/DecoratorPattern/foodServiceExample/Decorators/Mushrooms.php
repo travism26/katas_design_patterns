@@ -18,6 +18,6 @@ class Mushrooms implements IngredientInterface {
 
     public function getPrice()
     {
-        return 2.99;
+        return 2;
     }
 }
