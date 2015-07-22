@@ -9,46 +9,48 @@
 namespace patterns\DecoratorPattern\foodServiceExample;
 
 
-use patterns\DecoratorPattern\foodServiceExample\Decorators\IngredientInterface;
-use patterns\DecoratorPattern\foodServiceExample\Decorators\PizzaSauce;
-use patterns\DecoratorPattern\foodServiceExample\Decorators\SpicyCheese;
+use patterns\DecoratorPattern\foodServiceExample\Ingredients\IngredientInterface;
+use patterns\DecoratorPattern\foodServiceExample\Ingredients\PizzaSauce;
+use patterns\DecoratorPattern\foodServiceExample\Ingredients\SpicyCheese;
 
 /*
  * This say this is a pizza shop or some place that
  * serves pizza as their main dish.
  */
 
-abstract class BasePizza
-{
+abstract class BasePizza {
 
-    protected $ingredients = [];
+	protected $ingredients = [];
 
-    protected $extraIngredients = [];
+	protected $extraIngredients = [];
 
-    public function __construct()
-    {
-        $this->init();
-        $this->addPrimaryIngredients();
-    }
-    protected function init()
-    {
-        $this->addIngredient(new PizzaSauce)->addIngredient(new SpicyCheese);
-    }
+	public function __construct()
+	{
+		$this->init();
+		$this->addPrimaryIngredients();
+	}
 
-    protected function addIngredient(IngredientInterface $ingredient)
-    {
-        $this->ingredients[] = $ingredient;
-        return $this;
-    }
+	protected function init()
+	{
+		$this->addIngredient(new PizzaSauce)->addIngredient(new SpicyCheese);
+	}
 
-    //this might not be needed but adding in just in case it is.
-    public function addExtraIngredient(IngredientInterface $ingredient)
-    {
-        $this->extraIngredients[] = $ingredient;
-        return $this;
-    }
+	protected function addIngredient(IngredientInterface $ingredient)
+	{
+		$this->ingredients[] = $ingredient;
 
-    //not needed right now.
+		return $this;
+	}
+
+	//this might not be needed but adding in just in case it is.
+	public function addExtraIngredient(IngredientInterface $ingredient)
+	{
+		$this->extraIngredients[] = $ingredient;
+
+		return $this;
+	}
+
+	//not needed right now.
 //    public function calBasePrice()
 //    {
 //        return array_sum(array_map(function($task) {
@@ -56,30 +58,35 @@ abstract class BasePizza
 //        }, $this->ingredients));
 //    }
 
-    public function getExtraIngredients()
-    {
-        return $this->extraIngredients;
-    }
+	public function calTotalPrice($ingredients = [])
+	{
+		return array_sum(array_map(function ($ingredients)
+		{
+			return $ingredients->getPrice();
+		}, $ingredients));
+	}
 
-    public function calTotalPrice($ingredients = [])
-    {
-        return array_sum(array_map(function ($ingredients) {
-            return $ingredients->getPrice();
-        }, $ingredients));
-    }
 
-    public function calPrice()
-    {
-        //$base_price = $this->calTotalPrice($this->ingredients);
-        //$extra_price = $this->calTotalPrice($this->getExtraIngredients());
-        //$total = $base_price + $extra_price;
-        return $this->calTotalPrice($this->getIngredients());
-    }
+	public function getIngredients()
+	{
+		return $this->ingredients;
+	}
 
-    public function getIngredients()
-    {
-        return array_merge($this->ingredients, $this->extraIngredient);
-    }
-    abstract public function addPrimaryIngredients();
+	public function getExtraIngredients()
+	{
+		return $this->extraIngredients;
+	}
+
+	public function getAllIngredients()
+	{
+		$base = $this->getIngredients();
+		$extra = $this->getExtraIngredients();
+
+		$merged = array_merge($base, $extra);
+
+		return $merged;
+	}
+
+	abstract public function addPrimaryIngredients();
 
 }

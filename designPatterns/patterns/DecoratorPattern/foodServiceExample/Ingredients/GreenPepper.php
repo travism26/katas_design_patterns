@@ -6,7 +6,7 @@
  * Time: 7:46 PM
  */
 
-namespace patterns\DecoratorPattern\foodServiceExample\Decorators;
+namespace patterns\DecoratorPattern\foodServiceExample\Ingredients;
 
 
 class GreenPepper implements IngredientInterface {

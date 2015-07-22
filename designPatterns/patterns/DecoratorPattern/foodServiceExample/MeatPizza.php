@@ -9,9 +9,10 @@
 namespace patterns\DecoratorPattern\foodServiceExample;
 
 
-use patterns\DecoratorPattern\foodServiceExample\Decorators\Bacon;
-use patterns\DecoratorPattern\foodServiceExample\Decorators\Ham;
-use patterns\DecoratorPattern\foodServiceExample\Decorators\Pepperoni;
+
+use patterns\DecoratorPattern\foodServiceExample\Ingredients\Bacon;
+use patterns\DecoratorPattern\foodServiceExample\Ingredients\Ham;
+use patterns\DecoratorPattern\foodServiceExample\Ingredients\Pepperoni;
 
 class MeatPizza extends BasePizza
 {
@@ -20,7 +21,7 @@ class MeatPizza extends BasePizza
      */
     public function addPrimaryIngredients()
     {
-        return $this->ingredients[] = $this->addIngredient(new Bacon)->addIngredient(new Ham)->addIngredient(new Pepperoni);
+        $this->addIngredient(new Bacon)->addIngredient(new Ham)->addIngredient(new Pepperoni);
     }
 
 }

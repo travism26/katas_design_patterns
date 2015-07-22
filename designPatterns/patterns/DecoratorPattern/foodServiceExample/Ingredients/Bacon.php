@@ -6,7 +6,7 @@
  * Time: 4:13 PM
  */
 
-namespace patterns\DecoratorPattern\foodServiceExample\Decorators;
+namespace patterns\DecoratorPattern\foodServiceExample\Ingredients;
 
 
 class Bacon implements IngredientInterface{
