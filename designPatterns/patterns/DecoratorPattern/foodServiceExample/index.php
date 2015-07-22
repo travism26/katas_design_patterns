@@ -8,18 +8,12 @@ require '../../../index.php';
 
 $meatPizza = new MeatPizza;
 
+//testing decorator.
 $meatPizza->addExtraIngredient(new GreenPepper)->addExtraIngredient(new Mushrooms);
-$merged = $meatPizza->getAllIngredients();
 
-foreach ($merged as $item)
-{
-	echo $item->getName() . ", ";
-}
+echo $meatPizza->getNameOfIngredients() . "\n";
 
-$total = 0;
-foreach($merged as $item){
-	$total += $item->getPrice();
-}
+$total = $meatPizza->calTotalPrice();
 
 echo $total;
 //var_dump($all);
