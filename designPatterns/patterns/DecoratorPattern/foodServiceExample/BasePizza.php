@@ -41,9 +41,9 @@ abstract class BasePizza {
 	}
 
 	/**
-	 * @param IngredientInterface $ingredient
+	 * @param IngredientInterface $ingredient 
 	 *
-	 * @return $this
+	 * @return $this returns a BasePizza object.
 	 */
 	protected function addIngredient(IngredientInterface $ingredient)
 	{
@@ -55,7 +55,7 @@ abstract class BasePizza {
 	/**
 	 * @param IngredientInterface $ingredient
 	 *
-	 * @return $this
+	 * @return $this returns a BasePizza objec
 	 */
 	public function addExtraIngredient(IngredientInterface $ingredient)
 	{
